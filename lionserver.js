@@ -11,6 +11,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var _ = require("lodash");
+var port = process.env.PORT || 3000;
 //var fs = require('fs');
 
 let app = express();
@@ -117,5 +118,5 @@ app.delete('/lions/:id', function(req, res) {
   }
   res.json(lions.splice(index,1)[0]);
 });
-// start server on port 3000
-app.listen(3000);
+// start server on port 3000 or env
+app.listen(port);
