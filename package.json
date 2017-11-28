@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm dev:start",
+    "start": "node lionserver.js",
+    "develop": "yarn dev:start",
     "dev:start": "nodemon lionserver.js"
   },
   "author": "",
