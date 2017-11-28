@@ -1,5 +1,5 @@
 /* eslint-env es6 */
-fetch("http://localhost:3000/lions/").then(d => d.json()).then(data => {
+fetch("/lions/").then(d => d.json()).then(data => {
     data.forEach(addLion);
 });
 
@@ -7,7 +7,7 @@ let template = document.getElementById("lionTemplate").content;
 let parent = document.getElementById("app");
 
 function test(){
-  fetch("http://localhost:3000/lions").then(d=>d.json()).then(updateLions)
+  fetch("/lions").then(d=>d.json()).then(updateLions)
 }
 function updateLions(lions) {
     //TODO check existing, modify accordingly (delete/add/update?)
@@ -47,7 +47,7 @@ function addLion(lion) {
         document.querySelector("input[value='Save']").classList.toggle("hidden");
     })
     clone.querySelector('button.delete').addEventListener('click', (e) => {
-        fetch(`http://localhost:3000/lions/${e.target.parentElement.dataset.id}`, {
+        fetch(`/lions/${e.target.parentElement.dataset.id}`, {
                 method: "delete",
             })
             .then(d => d.json())
@@ -67,7 +67,7 @@ submitButton.addEventListener('click', (e) => {
         pride: document.querySelector("textarea[name=pride]").value
     }//TODO refractor into function getValues()
     //TODO optimistic insert, rollback on error?
-    fetch("http://localhost:3000/lions", {
+    fetch("/lions", {
         method: "post",
         headers: {
             'Content-Type': 'application/json; charset=utf-8',//TODO charset not needed?
@@ -98,7 +98,7 @@ updateButton.addEventListener('click', (e) => {
         gender: document.querySelector("input[name=gender]:checked").value,
         pride: document.querySelector("textarea[name=pride]").value
     }
-    fetch(`http://localhost:3000/lions/${document.querySelector("form").dataset.id}`, {
+    fetch(`/lions/${document.querySelector("form").dataset.id}`, {
         method: "put",
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
