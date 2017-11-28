@@ -1,0 +1,4 @@
+label, input, textarea, select {
+      display:block;
+    }
+    .hidden {display: none;}

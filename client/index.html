@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lions be here</title>
+  <link rel="stylesheet" href="lions.css">
+</head>
+<body>
+ <h1>Lions Be Here</h1>
+  <div id="app"></div>
+  <!-- endpoint only supports json, wont work without JS -->
+  <form method="post" action="http://localhost:3000/lions">
+   <fieldset>
+    <legend>Add a Lion</legend>
+    <label>
+      Name: <input type="text" name="name">
+    </label>
+    <label>
+      Age: <input type="number" name="age">
+    </label>
+    <h3>Gender</h3>
+    <label>
+      Male: <input type="radio" name="gender" value="male">
+    </label>
+    <label>
+      Female: <input type="radio" name="gender" value="female">
+    </label>
+    <label><textarea name="pride" id="" cols="30" rows="10"></textarea></label>
+    <input type="submit" value="Save">
+    <input type="submit" value="Update" class="hidden">
+    </fieldset>
+  </form>
+  <template id="lionTemplate">
+    <article class="lion" data-id="">
+      <h1>NAME</h1>
+      <h2><span>AGE</span> - <span>GENDER</span></h2>
+      <p>PRIDE</p>
+      <button class="update">Update</button>
+      <button class="delete">Delete</button>
+    </article>
+  </template>
+  
+  <script src="lions.js"></script>
+</body>
+</html>
